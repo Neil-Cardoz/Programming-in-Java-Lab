@@ -63,4 +63,31 @@ class Calculator {
         // Returning the result
         return quotient;
     }
+	
+	    double calculateMean(int[] arr) {
+        int sum = 0;
+
+        // Summing up all elements in the array
+        for (int num : arr) {
+            sum += num;
+        }
+
+        // Returning the mean as a double
+        return (double) sum / arr.length;
+    }
+
+    // Method to calculate the variance of the array
+    double calculateVariance(int[] arr) {
+        double mean = calculateMean(arr); // Get the mean
+        double variance = 0;
+
+        // Calculating variance
+        for (int num : arr) {
+            variance += Math.pow(num - mean, 2); // (xi - mean)^2
+        }
+
+        // Returning the variance
+        return variance / arr.length;
+    }
+}
 }
