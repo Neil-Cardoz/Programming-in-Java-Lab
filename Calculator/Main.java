@@ -1,8 +1,13 @@
-class Main{
-	
-	public static void main(String args[]){
-	
-		Calculator cal = new Calculator();
-		System.out.println("The sum is :" +cal.addition());
-	}
+public class Main {
+
+    public static void main(String[] args) {
+        // Creating an object of UserInput to display the menu
+        UserInput userInput = new UserInput();
+        
+        // Creating an object of Calculator to perform operations
+        Calculator calc = new Calculator();
+        
+        // Display the menu to the user
+        displayMenu(userInput);
+    }
 }
