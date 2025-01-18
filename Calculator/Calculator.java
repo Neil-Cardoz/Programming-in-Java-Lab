@@ -63,8 +63,9 @@ class Calculator {
         // Returning the result
         return quotient;
     }
-	
-	    double calculateMean(int[] arr) {
+
+    // Method to calculate the mean of the array
+    double calculateMean(int[] arr) {
         int sum = 0;
 
         // Summing up all elements in the array
@@ -89,5 +90,4 @@ class Calculator {
         // Returning the variance
         return variance / arr.length;
     }
-}
 }
