@@ -53,4 +53,59 @@ class UserInput {
         return ar; // Returning the array
     }
 }
-	
+void displayMenu() {
+        Scanner scan = new Scanner(System.in);
+        
+        // Displaying the available operations
+        System.out.println("\nSelect the operation:");
+        System.out.println("1. Addition");
+        System.out.println("2. Subtraction");
+        System.out.println("3. Multiplication");
+        System.out.println("4. Division");
+        System.out.println("5. Mean of numbers");
+        System.out.println("6. Variance of numbers");
+
+        // Taking user choice
+        int choice = scan.nextInt();
+
+        // Using switch-case for handling user choice
+        switch (choice) {
+            case 1:
+                // Calling the addition method from the Calculator class
+                Calculator calc = new Calculator();
+                System.out.println("Result of addition: " + calc.addition());
+                break;
+
+            case 2:
+                // Calling the subtraction method from the Calculator class
+                System.out.println("Result of subtraction: " + calc.subtraction());
+                break;
+
+            case 3:
+                // Calling the multiplication method from the Calculator class
+                System.out.println("Result of multiplication: " + calc.multiplication());
+                break;
+
+            case 4:
+                // Calling the division method from the Calculator class
+                System.out.println("Result of division: " + calc.division());
+                break;
+
+            case 5:
+                // Calling the method to calculate the mean
+                int[] numbersForMean = userArrInput(); // Get input for mean
+                System.out.println("Mean of the numbers: " + calc.calculateMean(numbersForMean));
+                break;
+
+            case 6:
+                // Calling the method to calculate the variance
+                int[] numbersForVariance = userArrInput(); // Get input for variance
+                System.out.println("Variance of the numbers: " + calc.calculateVariance(numbersForVariance));
+                break;
+
+            default:
+                // Invalid input
+                System.out.println("Invalid choice. Please select a valid operation.");
+                break;
+        }
+    }
