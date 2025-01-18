@@ -1,93 +1,61 @@
-import java.util.Scanner;
-
-// Class to perform basic calculator operations
 class Calculator {
 
     // Method to perform addition
-    int addition() {
-        // Declaring an array to store the user inputs
-        int[] num;
-        
-        // Creating an object of UserInput to fetch user inputs
-        UserInput in = new UserInput();
-        num = in.userInput(); // Calling the method to get user inputs
-
-        // Adding the two numbers
-        int sum = num[0] + num[1];
-
-        // Returning the result
-        return sum;
+    int addition(int[] numbers) {
+        return numbers[0] + numbers[1];
     }
 
     // Method to perform subtraction
-    int subtraction() {
-        int[] num;
-        UserInput in = new UserInput();
-        num = in.userInput(); // Fetching user inputs
-
-        // Subtracting the second number from the first
-        int difference = num[0] - num[1];
-        
-        // Returning the result
-        return difference;
+    int subtraction(int[] numbers) {
+        return numbers[0] - numbers[1];
     }
 
     // Method to perform multiplication
-    int multiplication() {
-        int[] num;
-        UserInput in = new UserInput();
-        num = in.userInput(); // Fetching user inputs
-
-        // Multiplying the two numbers
-        int product = num[0] * num[1];
-        
-        // Returning the result
-        return product;
+    int multiplication(int[] numbers) {
+        return numbers[0] * numbers[1];
     }
 
     // Method to perform division
-    double division() {
-        int[] num;
-        UserInput in = new UserInput();
-        num = in.userInput(); // Fetching user inputs
-
-        // Checking if division by zero is attempted
-        if (num[1] == 0) {
+    double division(int[] numbers) {
+        if (numbers[1] == 0) {
             System.out.println("Error: Division by zero is not allowed.");
-            return 0; // Return 0 if division by zero is attempted
+            return 0;
         }
-
-        // Dividing the first number by the second
-        double quotient = (double) num[0] / num[1];
-        
-        // Returning the result
-        return quotient;
+        return (double) numbers[0] / numbers[1];
     }
 
-    // Method to calculate the mean of the array
-    double calculateMean(int[] arr) {
-        int sum = 0;
+    // Method to calculate Fibonacci sequence up to nth term
+    void fibonacci(int n) {
+        int first = 0, second = 1;
 
-        // Summing up all elements in the array
-        for (int num : arr) {
+        // Print the Fibonacci sequence up to n terms
+        System.out.print(first + " " + second + " ");
+        
+        for (int i = 3; i <= n; i++) {
+            int nextTerm = first + second;
+            System.out.print(nextTerm + " ");
+            first = second;
+            second = nextTerm;
+        }
+        System.out.println();
+    }
+
+    // Method to calculate the mean of an array
+    double mean(int[] numbers) {
+        double sum = 0;
+        for (int num : numbers) {
             sum += num;
         }
-
-        // Returning the mean as a double
-        return (double) sum / arr.length;
+        return sum / numbers.length;
     }
 
-    // Method to calculate the variance of the array
-    double calculateVariance(int[] arr) {
-        double mean = calculateMean(arr); // Get the mean
-        double variance = 0;
-
-        // Calculating variance
-        for (int num : arr) {
-            variance += Math.pow(num - mean, 2); // (xi - mean)^2
+    // Method to calculate the variance of an array
+    double variance(int[] numbers) {
+        double mean = mean(numbers);
+        double sumOfSquares = 0;
+        for (int num : numbers) {
+            sumOfSquares += Math.pow(num - mean, 2);
         }
-
-        // Returning the variance
-        return variance / arr.length;
+        return sumOfSquares / numbers.length;
     }
 }
