@@ -28,7 +28,7 @@ class UserInput {
 }
 
 	
-	iint[] userArrInput() {
+	int[] userArrInput() {
         // Declaring a variable to store the length of the array
         int a;
         
